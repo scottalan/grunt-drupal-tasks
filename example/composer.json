@@ -2,7 +2,7 @@
     "name": "client/project",
     "description": "{Project} drupal codebase for {client}.",
     "require-dev": {
-        "behat/mink-zombie-driver": "~1.2",
+        "jakoch/phantomjs-installer": "2.1.1",
         "drupal/drupal-extension": "~3.0",
         "drush/drush": "dev-master",
         "phpmd/phpmd": "~2.1",
@@ -11,5 +11,13 @@
     },
     "require": {
         "roave/security-advisories": "dev-master"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
     }
 }
